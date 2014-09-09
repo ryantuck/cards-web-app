@@ -10,13 +10,15 @@
 angular.module('tttApp')
   .controller('MainCtrl', function ($scope,localStorageService) {
     
+    // grabs todos from storage and makes them usable
     var todosInStore = localStorageService.get('todos');
-
 	$scope.todos = todosInStore && todosInStore.split('\n') || [];
 
-	$scope.$watch('todos', function () {
-	  localStorageService.add('todos', $scope.todos.join('\n'));
-	}, true);
+    
+// adds todos to local storage upon creation (I think)
+    $scope.$watch('todos', function () {
+      localStorageService.add('todos', $scope.todos.join('\n'));
+    }, true);
 
     $scope.addToDo = function() {
     	$scope.todos.push($scope.todo);
