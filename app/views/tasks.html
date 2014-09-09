@@ -1,0 +1,38 @@
+<div class="container">
+
+	<h3>This is the current working directory for working on tasks stuff. Next level stuff here. </h3>
+
+	<hr>
+
+	<form role="form" ng-submit="addTask()">
+    	<div class="row">
+      		<div class="input-group">
+        		<input type="text" ng-model="newTaskTitle" placeholder="something to do?" class="form-control">
+        		<span class="input-group-btn">
+          			<input type="submit" class="btn btn-primary" value="Add">
+        		</span>
+      		</div>
+    	</div>
+  	</form>
+  	<p></p>
+
+	<h3>Test Tasks</h3>
+	<div ui-sortable ng-model="testTasks">
+		<div class="card" ng-repeat="abc in testTasks track by $index">
+			<p> {{ abc.title }} </p>
+			
+		</div>
+	</div>
+
+	<h3>Entered Tasks</h3>
+	<div ui-sortable ng-model="tasks">
+		<div class="card" ng-repeat="abc in tasks track by $index">
+			<p> {{ abc.title }} </p>
+			<p> {{ abc.due }} </p>
+		</div>
+	</div>
+
+
+
+
+</div>
