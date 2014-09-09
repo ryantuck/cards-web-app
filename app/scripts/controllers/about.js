@@ -15,8 +15,9 @@ angular.module('tttApp')
       'Karma'
     ];
 
-    var booksInStore = localStorageService.get('books');
-    $scope.books = booksInStore;
+    $scope.books = [];
+    var tmp = localStorageService.get('books');
+    if (tmp != null) $scope.books = tmp;
 
     $scope.$watch('books', function () {
       localStorageService.add('books', $scope.books);
