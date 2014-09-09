@@ -17,13 +17,16 @@ angular.module('tttApp')
 
     $scope.coolObjects = [
     	{
-    		title: 'brothers karamazov'
+    		title: 'brothers karamazov',
+    		author: 'dostoevsky'
     	},
     	{
-    		title: 'atlas shrugged'
+    		title: 'atlas shrugged',
+    		author: 'rand'
     	},
 		{
-    		title: 'being and time'
+    		title: 'being and time',
+    		author: 'heidegger'
     	},
     	
 
