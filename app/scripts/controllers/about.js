@@ -43,6 +43,13 @@ angular.module('tttApp')
     var cpr = new book('critique of pure reason','kant');
 	var geb = new book('godel escher bach','hofstadter');
 
-	$scope.otherBooks = [cpr,geb];    
+	$scope.otherBooks = [cpr,geb];  
+	
+	$scope.books = [];
+	$scope.addBook = function() {
+		var aBook = new book($scope.tome,'random author');
+		$scope.books.push(aBook);
+		$scope.tome = '';
+	};  
 
   });
