@@ -28,9 +28,12 @@ angular.module('tttApp')
     		title: 'being and time',
     		author: 'heidegger'
     	},
-    	
-
     ];
+
+    $scope.theBestBook = {
+    	title: 'the very hungry caterpillar',
+    	author: 'some guy'
+    };
 
 
   });
