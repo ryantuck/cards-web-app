@@ -16,10 +16,10 @@ angular.module('tttApp')
     ];
 
     var booksInStore = localStorageService.get('books');
-    $scope.books = booksInStore && booksInStore.split('\n') || [];
+    $scope.books = booksInStore;
 
     $scope.$watch('books', function () {
-      localStorageService.add('books', $scope.books.join('\n'));
+      localStorageService.add('books', $scope.books);
     }, true);
 
     $scope.coolObjects = [
