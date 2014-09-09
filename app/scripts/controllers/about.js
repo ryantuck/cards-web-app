@@ -8,12 +8,19 @@
  * Controller of the tttApp
  */
 angular.module('tttApp')
-  .controller('AboutCtrl', function ($scope) {
+  .controller('AboutCtrl', function ($scope, localStorageService) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
     ];
+
+    var booksInStore = localStorageService.get('books');
+    $scope.books = booksInStore && booksInStore.split('\n') || [];
+
+    $scope.$watch('books', function () {
+      localStorageService.add('books', $scope.books.join('\n'));
+    }, true);
 
     $scope.coolObjects = [
     	{
@@ -45,7 +52,6 @@ angular.module('tttApp')
 
 	$scope.otherBooks = [cpr,geb];  
 	
-	$scope.books = [];
 	$scope.addBook = function() {
 		var aBook = new book($scope.tome,'random author');
 		$scope.books.push(aBook);
