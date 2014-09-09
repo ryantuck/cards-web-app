@@ -2,9 +2,9 @@
 	
 	<!-- List of ToDos -->
 	<div ui-sortable ng-model="awesomeThings">
-		<div class="card" ng-repeat="xyz in awesomeThings track by $index">
+		<div class="card" ng-repeat="xyz in coolObjects track by $index">
 	    	<p>
-	      		{{ xyz }}
+	      		{{ xyz.title }}
 	   		</p>
 	    </div>
 	</div>

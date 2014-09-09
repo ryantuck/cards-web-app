@@ -14,4 +14,20 @@ angular.module('tttApp')
       'AngularJS',
       'Karma'
     ];
+
+    $scope.coolObjects = [
+    	{
+    		title: 'brothers karamazov'
+    	},
+    	{
+    		title: 'atlas shrugged'
+    	},
+		{
+    		title: 'being and time'
+    	},
+    	
+
+    ];
+
+
   });
