@@ -1,1 +1,11 @@
-<p>This is the about view.</p>
+<div class="container">
+	
+	<!-- List of ToDos -->
+	<div ui-sortable ng-model="awesomeThings">
+		<div class="card" ng-repeat="xyz in awesomeThings track by $index">
+	    	<p>
+	      		{{ xyz }}
+	   		</p>
+	    </div>
+	</div>
+</div>
