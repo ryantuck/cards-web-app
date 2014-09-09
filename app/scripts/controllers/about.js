@@ -35,5 +35,14 @@ angular.module('tttApp')
     	author: 'some guy'
     };
 
+    function book(aTitle, aAuthor) {
+    	this.title = aTitle;
+    	this.author = aAuthor;
+    }
+
+    var cpr = new book('critique of pure reason','kant');
+	var geb = new book('godel escher bach','hofstadter');
+
+	$scope.otherBooks = [cpr,geb];    
 
   });

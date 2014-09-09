@@ -1,10 +1,12 @@
 <div class="container">
 
+	<h3>The Best Book</h3>
 	<div class="card">
 	<p> {{ theBestBook.title }} </p>
 	<p> {{ theBestBook.author }} </p>
 	</div>
 
+	<h3>Cool Books</h3>
 	<!-- List of ToDos -->
 	<div ui-sortable ng-model="awesomeThings">
 		<div class="card" ng-repeat="xyz in coolObjects track by $index">
@@ -16,4 +18,14 @@
 	   		</p>
 	    </div>
 	</div>
+
+	<h3>Other Books</h3>
+	<div ng-model="awesomeThings">
+		<div class="card" ng-repeat="abc in otherBooks track by $index">
+			<p> {{ abc.title }} </p>
+			<p> {{ abc.author }} </p>
+		</div>
+	</div>
+
+
 </div>
