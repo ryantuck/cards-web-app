@@ -34,8 +34,7 @@
 			<div ui-sortable ng-model="tasks">
 				<div class="card" ng-repeat="abc in tasks track by $index">
 					<p> {{ abc.title }} </p>
-					<p> {{ abc.due }} </p>
-					
+					<p> {{ abc.due | date:'shortDate' }} </p>	
 				</div>
 			</div>
 	  	</div>
