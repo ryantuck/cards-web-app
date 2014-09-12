@@ -25,20 +25,24 @@
 			<div ui-sortable ng-model="testTasks">
 				<div class="card" ng-repeat="abc in testTasks track by $index">
 					<p> {{ abc.title }} </p>
-					<button class="btn btn-primary" data-toggle="modal" data-target="#myModal" ng-click="editTask($index)">
-						edit
+					<button class="btn btn-primary" style="display:inline-block" data-toggle="modal" data-target="#myModal" ng-click="editTask($index)">
+						<i class="fa fa-edit"></i>
+					</button>
+					<button class="btn btn-danger" style="display:inline-block" ng-click="deleteTask($index)">
+						<i class="fa fa-trash-o"></i>
 					</button>
 				</div>
 			</div>
 	  	</div>
 
 	  	<!-- Entered Tasks -->
-	  	<div class="col-4-12">
+	  	<div class="col-8-12">
 	  		<h3>Entered Tasks</h3>
 			<div ui-sortable ng-model="tasks">
 				<div class="card" ng-repeat="abc in tasks track by $index">
 					<p> {{ abc.title }} </p>
-					<p> {{ abc.due | date:'shortDate' }} </p>	
+					<p> {{ abc.due | date:'shortDate' }} </p>
+					<p><i class="fa fa-anchor"></i>	
 				</div>
 			</div>
 	  	</div>

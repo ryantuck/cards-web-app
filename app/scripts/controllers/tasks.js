@@ -56,4 +56,9 @@ angular.module('tttApp')
 
     };
 
+    $scope.deleteTask = function(index) {
+        // delete given task
+        $scope.testTasks.splice(index,1);
+    };
+
   });
