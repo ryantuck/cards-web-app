@@ -9,7 +9,7 @@ angular.module('tttApp')
     function Task(taskTitle) {
 
     	this.title 	= taskTitle;
-    	this.type 	= 'inbox';
+    	this.type 	= 0;
     	this.due 	= Date.parse("October 31, 2014");
     	this.tags 	= [];
     }
@@ -46,13 +46,18 @@ angular.module('tttApp')
         // open modal and edit particular card
         $scope.editTitle = $scope.testTasks[index].title;
         $scope.currentIndex = index;
+        var tt = $scope.testTasks[index].type;
+        $scope.selectedTask = $scope.taskTypes[tt];
         console.log("edit task clicked");
+
     };
 
     $scope.saveEdits = function() {
         // save edits entered modal input
         $scope.testTasks[$scope.currentIndex].title = $scope.editTitle;
         console.log('save edits clicked');
+        console.log($scope.selectedTask.label);
+        $scope.testTasks[$scope.currentIndex].type = $scope.selectedTask.value;
 
     };
 
@@ -60,5 +65,14 @@ angular.module('tttApp')
         // delete given task
         $scope.testTasks.splice(index,1);
     };
+
+    $scope.taskTypes = [
+        { label:'inbox', value:0 },
+        { label:'todo', value:1 },
+        { label:'done', value:2 },
+    ];
+
+    $scope.selectedTask = $scope.taskTypes[0];
+
 
   });

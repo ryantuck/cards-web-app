@@ -68,9 +68,10 @@
 		      	<h4>Title</h4>
 		      	<input type="text" ng-model="editTitle" placeholder="card title" class="form-control">
 
-		      	<h4>Tags</h4>
-		      	<input type="text" ng-model="editTags" placeholder="home, internet, etc." class="form-control">
-
+		      	<h4>Task Type</h4>
+		      	<select id="editTaskDropDownType" class="form-control" name="task type" value="1" ng-model="selectedTask" ng-options="tt as tt.label for tt in taskTypes">
+				  
+				</select>
 
 		      </form>
 
