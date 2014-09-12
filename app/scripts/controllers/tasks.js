@@ -28,7 +28,10 @@ angular.module('tttApp')
     var t1 = new Task('get milk');
     var t2 = new Task('buy longboard');
     var t3 = new Task('make 1 million dollars');
-    $scope.testTasks = [t1,t2,t3];
+    var t4 = new Task('drink water');
+    var t5 = new Task('become a true hacker');
+
+    $scope.testTasks = [t1,t2,t3,t4,t5];
 
     // function for adding new task from input bar
 	$scope.addTask = function() {
