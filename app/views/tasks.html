@@ -22,8 +22,8 @@
   		<!-- Test Tasks -->
 	  	<div class="col-4-12">
 	  		<h3>Inbox</h3>
-			<div ui-sortable ng-model="testTasks">
-				<div class="card" ng-repeat="abc in testTasks track by $index" ng-show="abc.type==0">
+			<div ui-sortable ng-model="tasks">
+				<div class="card" ng-repeat="abc in tasks track by $index" ng-show="abc.type==0">
 					<p> {{ abc.title }} </p>
 					<button class="btn btn-primary" style="display:inline-block" data-toggle="modal" data-target="#myModal" ng-click="editTask($index)">
 						<i class="fa fa-edit"></i>
@@ -33,7 +33,7 @@
 					</button>
 					<button class="btn btn-success" style="display:inline-block" ng-click="completeTask($index)">
 						<i class="fa fa-check"></i>
-					</button>
+					</button>	
 
 				</div>
 			</div>
@@ -42,8 +42,8 @@
 	  	<!-- Entered Tasks -->
 	  	<div class="col-4-12">
 	  		<h3>To Do</h3>
-			<div ui-sortable ng-model="testTasks">
-				<div class="card" ng-repeat="abc in testTasks track by $index" ng-show="abc.type==1">
+			<div ui-sortable ng-model="tasks">
+				<div class="card" ng-repeat="abc in tasks track by $index" ng-show="abc.type==1">
 					<p> {{ abc.title }} </p>
 					<button class="btn btn-primary" style="display:inline-block" data-toggle="modal" data-target="#myModal" ng-click="editTask($index)">
 						<i class="fa fa-edit"></i>
@@ -62,8 +62,8 @@
 	  	<!-- Done Tasks -->
 	  	<div class="col-4-12">
 	  		<h3>Completed</h3>
-			<div ui-sortable ng-model="testTasks">
-				<div class="card" ng-repeat="abc in testTasks track by $index" ng-show="abc.type==2">
+			<div ui-sortable ng-model="tasks">
+				<div class="card" ng-repeat="abc in tasks track by $index" ng-show="abc.type==2">
 					<p> {{ abc.title }} </p>
 					<button class="btn btn-primary" style="display:inline-block" data-toggle="modal" data-target="#myModal" ng-click="editTask($index)">
 						<i class="fa fa-edit"></i>
