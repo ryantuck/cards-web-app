@@ -93,15 +93,19 @@
 	      </div>
 	      <div class="modal-body">
 		      <form role="form">
+		      	
 		      	<h4>Title</h4>
 		      	<input type="text" ng-model="editTitle" placeholder="card title" class="form-control">
+		      	
 		      	<br>
 
 		      	<h4>Task Type</h4>
-		      	<select id="editTaskDropDownType" class="form-control" name="task type" value="1" ng-model="selectedTask" ng-options="tt as tt.label for tt in taskTypes">
-				  
+		      	<select id="editTaskDropDownType" 
+		      			class="form-control" 
+		      			name="task type"
+		      			ng-model="selectedTask" 
+		      			ng-options="tt as tt.label for tt in taskTypes">
 				</select>
-
 		      </form>
 
 	      </div>
