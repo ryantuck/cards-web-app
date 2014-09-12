@@ -32,6 +32,7 @@
 						<i class="fa fa-trash-o"></i>
 					</button>
 					<button class="btn btn-success" style="display:inline-block" ng-click="deleteTask($index)">
+					<button class="btn btn-success" style="display:inline-block" ng-click="completeTask($index)">
 						<i class="fa fa-check"></i>
 					</button>
 
@@ -47,6 +48,8 @@
 					<p> {{ abc.title }} </p>
 					<p> {{ abc.due | date:'shortDate' }} </p>
 					<p><i class="fa fa-anchor"></i>	
+					<button class="btn btn-success" style="display:inline-block" ng-click="completeTask($index)">
+					<button class="btn btn-success" style="display:inline-block" ng-click="completeTask($index)">
 				</div>
 			</div>
 	  	</div>

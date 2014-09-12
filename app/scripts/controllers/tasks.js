@@ -66,6 +66,11 @@ angular.module('tttApp')
         $scope.testTasks.splice(index,1);
     };
 
+    $scope.completeTask = function(index) {
+        // change type of task to 'done'
+        $scope.testTasks[index].type = 2;
+    };
+
     $scope.taskTypes = [
         { label:'inbox', value:0 },
         { label:'todo', value:1 },
