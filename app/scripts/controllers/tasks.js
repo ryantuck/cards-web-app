@@ -40,4 +40,20 @@ angular.module('tttApp')
 		$scope.newTaskTitle = '';
 	};
 
+    $scope.currentIndex = 0;
+
+    $scope.editTask = function(index) {
+        // open modal and edit particular card
+        $scope.editTitle = $scope.testTasks[index].title;
+        $scope.currentIndex = index;
+        console.log("edit task clicked");
+    };
+
+    $scope.saveEdits = function() {
+        // save edits entered modal input
+        $scope.testTasks[$scope.currentIndex].title = $scope.editTitle;
+        console.log('save edits clicked');
+
+    };
+
   });

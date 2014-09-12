@@ -16,18 +16,15 @@
   	</form>
   	<p></p>
 
-    <!-- Button trigger modal -->
-	<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-	  Launch demo modal
-	</button>
-    
-
   	<div class="grid grid-pad">
 	  	<div class="col-4-12">
 	  		<h3>Test Tasks</h3>
 			<div ui-sortable ng-model="testTasks">
 				<div class="card" ng-repeat="abc in testTasks track by $index">
 					<p> {{ abc.title }} </p>
+					<button class="btn btn-primary" data-toggle="modal" data-target="#myModal" ng-click="editTask($index)">
+						edit
+					</button>
 				</div>
 			</div>
 	  	</div>
@@ -38,6 +35,7 @@
 				<div class="card" ng-repeat="abc in tasks track by $index">
 					<p> {{ abc.title }} </p>
 					<p> {{ abc.due }} </p>
+					
 				</div>
 			</div>
 	  	</div>
@@ -54,11 +52,20 @@
 	        <h4 class="modal-title">Edit Task</h4>
 	      </div>
 	      <div class="modal-body">
-	        <p>One fine body&hellip;</p>
+		      <form role="form">
+		      	<h4>Title</h4>
+		      	<input type="text" ng-model="editTitle" placeholder="card title" class="form-control">
+
+		      	<h4>Tags</h4>
+		      	<input type="text" ng-model="editTags" placeholder="home, internet, etc." class="form-control">
+
+
+		      </form>
+
 	      </div>
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-	        <button type="button" class="btn btn-primary">Save changes</button>
+	        <button type="submit" class="btn btn-primary" ng-click="saveEdits()" data-dismiss="modal">Save</button>
 	      </div>
 	    </div><!-- /.modal-content -->
 	  </div><!-- /.modal-dialog -->
