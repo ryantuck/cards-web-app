@@ -1,9 +1,5 @@
 <div class="container">
 
-	<h3>This is the current working directory for working on tasks stuff. Next level stuff here. </h3>
-
-	<hr>
-
 	<!-- Input Form -->
 	<form role="form" ng-submit="addTask()">
     	<div class="row">
@@ -20,7 +16,7 @@
   	<div class="grid grid-pad">
 
   		<!-- Test Tasks -->
-	  	<div class="col-4-12">
+	  	<div class="col-3-12">
 	  		<h3>Inbox</h3>
 			<div ui-sortable ng-model="tasks">
 				<div class="card" ng-repeat="abc in tasks track by $index" ng-show="abc.type==0">
@@ -40,7 +36,7 @@
 	  	</div>
 
 	  	<!-- Entered Tasks -->
-	  	<div class="col-4-12">
+	  	<div class="col-3-12">
 	  		<h3>To Do</h3>
 			<div ui-sortable ng-model="tasks">
 				<div class="card" ng-repeat="abc in tasks track by $index" ng-show="abc.type==1">
@@ -60,7 +56,7 @@
 	  	</div>
 
 	  	<!-- Done Tasks -->
-	  	<div class="col-4-12">
+	  	<div class="col-3-12">
 	  		<h3>Completed</h3>
 			<div ui-sortable ng-model="tasks">
 				<div class="card" ng-repeat="abc in tasks track by $index" ng-show="abc.type==2">
@@ -78,6 +74,8 @@
 				</div>
 			</div>
 	  	</div>
+
+	  	
 
   	</div>
 
