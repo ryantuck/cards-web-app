@@ -21,9 +21,9 @@
 
   		<!-- Test Tasks -->
 	  	<div class="col-4-12">
-	  		<h3>Test Tasks</h3>
-			<div ui-sortable ng-model="testTasks">
-				<div class="card" ng-repeat="abc in testTasks track by $index">
+	  		<h3>Inbox</h3>
+			<div ui-sortable ng-model="tasks">
+				<div class="card" ng-repeat="abc in tasks track by $index" ng-show="abc.type==0">
 					<p> {{ abc.title }} </p>
 					<button class="btn btn-primary" style="display:inline-block" data-toggle="modal" data-target="#myModal" ng-click="editTask($index)">
 						<i class="fa fa-edit"></i>
@@ -31,18 +31,50 @@
 					<button class="btn btn-danger" style="display:inline-block" ng-click="deleteTask($index)">
 						<i class="fa fa-trash-o"></i>
 					</button>
+					<button class="btn btn-success" style="display:inline-block" ng-click="completeTask($index)">
+						<i class="fa fa-check"></i>
+					</button>	
+
 				</div>
 			</div>
 	  	</div>
 
 	  	<!-- Entered Tasks -->
-	  	<div class="col-8-12">
-	  		<h3>Entered Tasks</h3>
+	  	<div class="col-4-12">
+	  		<h3>To Do</h3>
 			<div ui-sortable ng-model="tasks">
-				<div class="card" ng-repeat="abc in tasks track by $index">
+				<div class="card" ng-repeat="abc in tasks track by $index" ng-show="abc.type==1">
 					<p> {{ abc.title }} </p>
-					<p> {{ abc.due | date:'shortDate' }} </p>
-					<p><i class="fa fa-anchor"></i>	
+					<button class="btn btn-primary" style="display:inline-block" data-toggle="modal" data-target="#myModal" ng-click="editTask($index)">
+						<i class="fa fa-edit"></i>
+					</button>
+					<button class="btn btn-danger" style="display:inline-block" ng-click="deleteTask($index)">
+						<i class="fa fa-trash-o"></i>
+					</button>
+					<button class="btn btn-success" style="display:inline-block" ng-click="completeTask($index)">
+						<i class="fa fa-check"></i>
+					</button>
+
+				</div>
+			</div>
+	  	</div>
+
+	  	<!-- Done Tasks -->
+	  	<div class="col-4-12">
+	  		<h3>Completed</h3>
+			<div ui-sortable ng-model="tasks">
+				<div class="card" ng-repeat="abc in tasks track by $index" ng-show="abc.type==2">
+					<p> {{ abc.title }} </p>
+					<button class="btn btn-primary" style="display:inline-block" data-toggle="modal" data-target="#myModal" ng-click="editTask($index)">
+						<i class="fa fa-edit"></i>
+					</button>
+					<button class="btn btn-danger" style="display:inline-block" ng-click="deleteTask($index)">
+						<i class="fa fa-trash-o"></i>
+					</button>
+					<button class="btn btn-success" style="display:inline-block" ng-click="completeTask($index)">
+						<i class="fa fa-check"></i>
+					</button>
+
 				</div>
 			</div>
 	  	</div>
@@ -61,13 +93,19 @@
 	      </div>
 	      <div class="modal-body">
 		      <form role="form">
+		      	
 		      	<h4>Title</h4>
 		      	<input type="text" ng-model="editTitle" placeholder="card title" class="form-control">
+		      	
+		      	<br>
 
-		      	<h4>Tags</h4>
-		      	<input type="text" ng-model="editTags" placeholder="home, internet, etc." class="form-control">
-
-
+		      	<h4>Task Type</h4>
+		      	<select id="editTaskDropDownType" 
+		      			class="form-control" 
+		      			name="task type"
+		      			ng-model="selectedTask" 
+		      			ng-options="tt as tt.label for tt in taskTypes">
+				</select>
 		      </form>
 
 	      </div>
