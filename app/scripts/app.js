@@ -34,8 +34,8 @@ angular
         templateUrl: 'views/tasks.html',
         controller: 'TasksCtrl'
       })
-      .when('/about', {
-        templateUrl: 'views/tasks.html',
+      .when('/inbox', {
+        templateUrl: 'views/inbox.html',
         controller: 'TasksCtrl'
       })
       .when('/tasks', {

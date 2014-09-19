@@ -17,7 +17,7 @@ angular.module('tttApp')
 
     $scope.books = [];
     var tmp = localStorageService.get('books');
-    if (tmp != null) $scope.books = tmp;
+    if (tmp !== null) {$scope.books = tmp;}
 
     $scope.$watch('books', function () {
       localStorageService.add('books', $scope.books);
@@ -43,18 +43,18 @@ angular.module('tttApp')
     	author: 'some guy'
     };
 
-    function book(aTitle, aAuthor) {
+    function Book(aTitle, aAuthor) {
     	this.title = aTitle;
     	this.author = aAuthor;
     }
 
-    var cpr = new book('critique of pure reason','kant');
-	var geb = new book('godel escher bach','hofstadter');
+    var cpr = new Book('critique of pure reason','kant');
+	var geb = new Book('godel escher bach','hofstadter');
 
 	$scope.otherBooks = [cpr,geb];  
 	
 	$scope.addBook = function() {
-		var aBook = new book($scope.tome,'random author');
+		var aBook = new Book($scope.tome,'random author');
 		$scope.books.push(aBook);
 		$scope.tome = '';
 	};  

@@ -3,14 +3,14 @@
 'use strict';
 
 angular.module('tttApp')
-  .controller('TasksCtrl', function ($scope, localStorageService) {
+  .controller('TasksCtrl', function ($scope, filterFilter, localStorageService) {
     
     // constructor for creating a new task
     function Task(taskTitle) {
 
     	this.title 	= taskTitle;
     	this.type 	= 0;
-    	this.due 	= Date.parse("October 31, 2014");
+    	this.due 	= Date.parse('October 31, 2014');
     	this.tags 	= [];
     }
 
@@ -26,7 +26,7 @@ angular.module('tttApp')
     // initially set tasks from local storage data
     $scope.tasks = [];
     var tmp = localStorageService.get('tasks');
-    if (tmp != null) $scope.tasks = tmp;
+    if (tmp !== null) {$scope.tasks = tmp;}
 
     // instantiate a watcher for changes to tasks
     $scope.$watch('tasks', function () {
@@ -53,7 +53,7 @@ angular.module('tttApp')
         $scope.currentIndex = index;
         var tt = $scope.tasks[index].type;
         $scope.selectedTask = $scope.taskTypes[tt];
-        console.log("edit task clicked");
+        console.log('edit task clicked');
 
     };
 
@@ -64,6 +64,11 @@ angular.module('tttApp')
         console.log($scope.selectedTask.label);
         $scope.tasks[$scope.currentIndex].type = $scope.selectedTask.value;
 
+    };
+
+    $scope.saveInboxEdits = function() {
+        $scope.filteredArray[0].title = $scope.inboxEditTitle;
+        $scope.filteredArray[0].type = $scope.inboxSelectedTask.value;
     };
 
     $scope.deleteTask = function(index) {
@@ -82,7 +87,39 @@ angular.module('tttApp')
         { label:'done', value:2 },
     ];
 
+    // set default drop-down values
     $scope.selectedTask = $scope.taskTypes[0];
+    $scope.inboxSelectedTask = $scope.taskTypes[0];
 
+
+    $scope.filteredArray = [];
+    $scope.$watch('tasks',function(){
+           $scope.filteredArray = filterFilter($scope.tasks, {type:0});
+           $scope.inboxEditTitle = $scope.filteredArray[0].title;
+           $scope.inboxSelectedTask = $scope.taskTypes[0];
+
+        },true); // the 'true' means any time any data in 'tasks' is changed, this function is run
+
+    $scope.countType = function() {
+        var l = $scope.filteredArray.length;
+        return l;
+    };
 
   });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

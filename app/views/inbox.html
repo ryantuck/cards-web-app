@@ -1,0 +1,60 @@
+<div class="container">
+
+	<!-- Input Form -->
+	<form role="form" ng-submit="addTask()">
+  	<div class="row">
+    		<div class="input-group">
+      		<input type="text" ng-model="newTaskTitle" placeholder="something to do?" class="form-control">
+      		<span class="input-group-btn">
+        			<input type="submit" class="btn btn-primary" value="Add">
+      		</span>
+    		</div>
+  	</div>
+	</form>
+  <p></p>
+
+  	<div class="grid grid-pad">
+
+  		<!-- Test Tasks -->
+	  	<div class="col-3-12">
+	  		<h3>Inbox <span class="badge pull-right">{{countType()}}</span></h3>
+	  		<ul class="list-group">
+	  			<li class="list-group-item" ng-repeat="abc in (tasks | filter: {type:0}) track by $index">
+	  				{{ abc.title }}
+  				</li>
+	  		</ul>
+	  	</div>
+
+	  	<!-- Processing Input -->
+	  	<div class="col-9-12">
+	  		
+	  		<form role="form">
+		      	
+	      	<h4>Title</h4>
+	      	<input type="text" ng-model="inboxEditTitle" class="form-control" placeholder="card title here" />
+	      	
+	      	<br>
+
+	      	<h4>Task Type</h4>
+	      	<select class="form-control" 
+	      			name="task type"
+	      			ng-model="inboxSelectedTask"
+	      			ng-options="tt as tt.label for tt in taskTypes">
+					</select>	
+				</form>
+
+				<br>
+				<div class="pull-right">
+		      <button type="submit" class="btn btn-primary" ng-click="saveInboxEdits()">Process</button>
+		      <button class="btn btn-danger" style="display:inline-block" ng-click="deleteTask($index)">
+						<i class="fa fa-trash-o"></i>
+					</button>
+					<button class="btn btn-success" style="display:inline-block" ng-click="completeTask($index)">
+						<i class="fa fa-check"></i>
+					</button>
+				</div>
+	  	</div>
+
+  	</div>
+
+</div>
